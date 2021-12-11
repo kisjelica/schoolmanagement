@@ -50,5 +50,28 @@ class DbFunction{
             }
         }
     }
+
+    function showCourse(){
+	
+        $db = Database::getInstance();
+        $mysqli = $db->getConnection();
+        $query = "SELECT * FROM tbl_course ";
+        $stmt= $mysqli->query($query);
+        return $stmt;
+        
+    }
+
+    function del_course($id){
+
+        //  echo $id;exit;
+         $db = Database::getInstance();
+         $mysqli = $db->getConnection();
+         $query="delete from tbl_course where cid=?";
+         $stmt= $mysqli->prepare($query);
+         $stmt->bind_param('s',$id);
+         $stmt->execute();
+         echo "<script>alert('Course has been deleted')</script>";
+         echo "<script>window.location.href='view-course.php'</script>";
+     }
 }
 ?>
