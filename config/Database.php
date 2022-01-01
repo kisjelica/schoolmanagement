@@ -5,7 +5,7 @@ class Database{
     private $_host = "localhost";
     private $_username = "root";
     private $_password = "";
-    private $_database = "schoolmanagement";
+    private $_database = "schoolmgmt";
     //singleton implementation
     public static function getInstance(){
         if(!self::$_instance){
